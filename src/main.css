@@ -1,0 +1,35 @@
+body {
+  margin: 0;
+  pad: 0;
+  background-color: black;
+}
+span {
+  color: red;
+}
+h1 {
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  color: aliceblue;
+}
+.container {
+  width: 90%;
+  margin-left: auto;
+  margin-right: auto;
+}
+.logo-container {
+  width: 200px;
+  margin: 10px;
+  text-align: center;
+  line-height: 75px;
+  font-size: 30px;
+}
+.header {
+  border-radius: 5px;
+  width: 600px;
+  margin-left: auto;
+  margin-right: auto;
+  height: 150px;
+  padding-left: 30px;
+  padding-right: 30px;
+  display: flex;
+  background-color: rgb(209, 209, 209);
+}

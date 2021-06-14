@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Subscribers NLA</title>
+    <link rel="stylesheet" href="src/main.css">
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <a href="https://www.youtube.com/channel/UCFvyrlb60DzZ-SzvnZ-f1pQ"><img class="logo-container" src='src/newline.svg' alt='Image' /></a>
+            <img class="logo-container" src='src/youtube.svg' alt='Image' />
+            
+        </div>
+        <a href="https://www.youtube.com/channel/UCFvyrlb60DzZ-SzvnZ-f1pQ"><h1>Youtube Channel: <span>New Line Academy</span> </h1></a>
+        <h1>Number of Subscribers: <span id="subCount">0</span></h1>
+        <h1>Number of Views: <span id="vwCount">0</span></h1>
+        <h1>Number of Videos: <span id="vidCount">0</span></h1>
+    </div>
+    
+    <script>
+        const subCount = document.getElementById('subCount');
+        const vwCount = document.getElementById('vwCount');
+        const vidCount = document.getElementById('vidCount');
+        let getSubscribers = () => {
+            fetch('https://www.googleapis.com/youtube/v3/channels?part=statistics&id=UCFvyrlb60DzZ-SzvnZ-f1pQ&key=AIzaSyDUnyUTvGM_pQd4Ojjku8Fz2nI5Z5a75gw')
+            .then(response => {
+                return response.json()
+            })
+            .then(data => {
+                console.log(data);
+                subCount.innerHTML = (data["items"][0].statistics.subscriberCount);
+                vwCount.innerHTML = (data["items"][0].statistics.viewCount);
+                vidCount.innerHTML = (data["items"][0].statistics.videoCount);
+            })
+        }
+        getSubscribers();
+    </script>
+</body>
+</html>
